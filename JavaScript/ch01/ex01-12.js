@@ -15,7 +15,7 @@ printArr(colorArr);
 // 유사배열객체
 //  - length 속성 추가
 //  - 0부터 시작해서 1씩 증가하는 속성 추가
-var arr2 = {
+var arr = {
   0: 'orange',
   1: 'yellow',
   2: 'green',
@@ -23,34 +23,48 @@ var arr2 = {
   push: function (elem) {
     // 맨뒤에 지정한 elem를 추가한다.
     // length를 1 증가시킨다.
-    arr2[arr2.length] = elem;
-    arr2.length++;
+    // this[this.length] = elem;
+    // this.length++;
+
+    // 호출될떄마다 매번 빈 배열이 생성되기 때문에 비효율적
+    // var tmpArr = [];
+    // tmpArr.push.call(this, elem);
+
+    // TODO: prototype 단원. 배열의 모든 배열은 Array.prototype 속성에 정의되어 있음.
+    Array.prototype.push.call(this, elem);
   },
   shift: function () {
     // 첫번째 요소를 삭제하고 반환한다.
     // length를 1 감소시킨다.
-    var first = arr2[0];
-    for (var i = 0; i < arr2.length - 1; i++) {
-      arr2[i] = arr2[i + 1];
-    }
-    arr2.length--;
-    delete arr2[arr2.length];
-    return first;
+
+    // var first = this[0];
+    // for (var i = 0; i < this.length - 1; i++) {
+    //   this[i] = this[i + 1];
+    // }
+    // this.length--;
+    // delete this[this.length];
+    // return first;
+
+    return Array.prototype.shift.call(this);
   },
   pop: function () {
     // 마지막 요소를 삭제후 반환
     // length 1 감소
-    var last = arr2[arr2.length - 1];
-    arr2.length--;
-    delete arr2[arr2.length];
-    return last;
+
+    // var last = this[this.length - 1];
+    // this.length--;
+    // delete this[this.length];
+    // return last;
+
+    return Array.prototype.pop.call(this);
   },
 };
-arr2.push('black');
-arr2.push('white');
-console.log(arr2.shift());
-console.log(arr2.pop());
-printArr(arr2);
+
+arr.push('black');
+arr.push('white');
+console.log(arr.shift());
+console.log(arr.pop());
+printArr(arr);
 // 0 orange
 // 1 yellow
 // 2 green

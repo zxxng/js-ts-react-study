@@ -14,6 +14,13 @@ console.log('arr', arr);
 // end 생략시 마지막까지 복사
 // 원본 데이터 유지
 
+var arr2;
+var arr2 = arr.slice(1, 3);
+var arr2 = arr.slice(-1, -3);
+var arr2 = arr.slice(2);
+var arr2 = arr.slice(-2);
+var arr2 = arr.slice();
+
 console.log('arr', arr);
 console.log('arr2', arr2);
 console.log(arr == arr2);
