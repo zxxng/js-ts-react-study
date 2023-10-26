@@ -3,9 +3,10 @@ console.log(Math.min(200, 100, 50, 60, 80, 30)); //30
 console.log(Math.min(100, 20, 60, 50, 70)); // 20
 
 // 지정한 배열의 요소 중 최소값을 반환
+// 지정한 배열의 요소 중 최소값을 반환
 function smallest(nums) {
   // 해당 생성자로 생성되었는지 확인
-  if (nums instanceof Array) {
+  if (!(nums instanceof Array)) {
     // nums = Array.prototype.slice.call(arguments);
     nums = [...arguments];
   }
@@ -16,7 +17,11 @@ function smallest(nums) {
   // return minNum;
 
   // return Math.min.apply(this, nums);
-  return Math.min(...nums);
+  // return Math.min(...nums);
+  // Array.prototype.min = function () {
+  //   return Math.min(...this);
+  // };
+  return nums.min();
 }
 
 console.log(smallest([10, 100])); // 10

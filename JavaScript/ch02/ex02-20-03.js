@@ -1,4 +1,3 @@
-// 과제!
 var todolist = [
   {
     _id: 1,
@@ -74,15 +73,19 @@ console.log('_id=3인 할일의 index', todoIndex);
 // 남은 할일이 하나라도 있는가?
 var hasTodo = isHasTodo(todolist);
 function isHasTodo(todolist) {
-  if (getReaminList(todolist).length === 0) return false;
-  return true;
+  for (let task of todolist) {
+    if (task.done === false) return true;
+  }
+  return false;
 }
 console.log('남은 할일이 하나라도 있는가?', hasTodo);
 
 // 할일이 모두 완료 되었는가?
 var busy = isBusy(todolist);
 function isBusy(todolist) {
-  if (getDoneList(todolist).length === 0) return false;
+  for (let task of todolist) {
+    if (task.done === false) return false;
+  }
   return true;
 }
 console.log('할일이 모두 완료 되었는가?', busy);
