@@ -28,7 +28,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'warn',
     // 함수의 리턴값을 꼭 지정해줘야 하는 옵션
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-inferrable-types': 'off',
+    '@typescript-eslint/no-inferrable-types': 'warn',
     // any 사용 x
     '@typescript-eslint/no-explicit-any': 'warn',
   },

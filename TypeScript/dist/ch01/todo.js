@@ -1,7 +1,7 @@
 "use strict";
 (() => {
     // TODO: 에러나 경고가 발생하는 부분에 적절한 타입 선언
-    let todoItems;
+    let todoItems = [];
     // api
     function fetchTodoItems() {
         const todos = [
@@ -11,7 +11,6 @@
         ];
         return todos;
     }
-    // TODO: Todo Type 지정
     // crud methods
     function fetchTodos() {
         const todos = fetchTodoItems();
@@ -32,14 +31,24 @@
         return todoItems[0];
     }
     function showCompleted() {
-        return todoItems.filter(item => item.done);
+        return todoItems.filter((item) => item.done);
     }
-    function addTwoTodoItems() {
+    function addTwoTodoItems(todo1, todo2) {
         // TODO: addTodo() 함수를 두 번 호출하여 todoItems에 할일 2개 추가
+        addTodo(todo1);
+        addTodo(todo2);
+        const first = logFirstTodo();
+        console.log('first : \n', first, '\n');
+        deleteTodo(4);
+        completeTodo(3, todoItems[3]);
+        const result = showCompleted();
+        console.log('result: \n', result, '\n');
     }
     // 1. Todo 목록을 가져온다.
     todoItems = fetchTodos();
     // 2. 2개의 Todo를 등록한다.
-    addTwoTodoItems();
-    console.log(todoItems);
+    const todo1 = { id: 4, title: '리액트까지', done: false };
+    const todo2 = { id: 5, title: '가보자고', done: false };
+    addTwoTodoItems(todo1, todo2);
+    console.log('todoItems : \n', todoItems, '\n');
 })();

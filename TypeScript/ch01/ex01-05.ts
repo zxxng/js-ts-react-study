@@ -1,16 +1,16 @@
 // 유니언 타입
 (() => {
-  function logString(msg: string) {
+  function logString(msg: string): void {
     console.log(msg);
   }
-  function logNumber(msg: number) {
+  function logNumber(msg: number): void {
     console.log(msg);
   }
 
   logString('hello');
   logNumber(10);
 
-  function log(msg: string | number) {
+  function log(msg: string | number): void {
     console.log(msg);
   }
 

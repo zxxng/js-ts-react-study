@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable @typescript-eslint/no-inferrable-types */
 (() => {
     // string
     var str = 'hello';
@@ -16,6 +17,7 @@
     // var users: [string, string] = ['김철수', 30];// error
     var user = ['김철수', 30];
     // any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     var userName = '이일구';
     userName = 219;
     // null
